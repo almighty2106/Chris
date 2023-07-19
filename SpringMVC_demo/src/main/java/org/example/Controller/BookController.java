@@ -58,8 +58,11 @@ public class BookController {
     @GetMapping
     public Result getAll() {
         List<Book> book = bookService.getAll();
+        for (int i = 0 ; i < book.size(); i++){
+            System.out.println(book.get(i));
+        }
         Integer code = book != null? Code.GET_OK:Code.GET_ERR;
         String msg = book != null? "" : "没有找到对应数据！";
-        return new Result(code,book,msg);
+        return new Result(code, book, msg);
     }
 }

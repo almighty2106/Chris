@@ -14,7 +14,7 @@ public class Book {
                 ", type='" + type + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                '}' + "\n";
+                '}' ;
     }
 
     public Integer getId() {
@@ -41,11 +41,11 @@ public class Book {
         this.name = name;
     }
 
-    public String getDescript() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescript(String descript) {
-        this.description = descript;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
