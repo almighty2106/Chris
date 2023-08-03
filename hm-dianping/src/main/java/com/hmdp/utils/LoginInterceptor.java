@@ -12,21 +12,18 @@ import javax.servlet.http.HttpSession;
 import static com.hmdp.utils.SystemConstants.SAVED_USER;
 
 public class LoginInterceptor implements HandlerInterceptor {
+
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        //获取session
-        HttpSession session = request.getSession();
-        //
-        Object user = session.getAttribute(SAVED_USER);
+
+        UserDTO user = UserHolder.getUser();
 
         if(user == null){
             //用户不存在拦截
             response.setStatus(401);
             return false;
         }
-
-        //用户存在，保存到Thread Local里面
-        UserHolder.saveUser((UserDTO) user);
 
         return true;
     }
